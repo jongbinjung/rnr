@@ -3,15 +3,14 @@
 #'
 #' @param df data frame to analyze; must include columns $treat: Observed
 #'   (binary) treatment, e.g., bail_set $resp_ctl: Predicted probability of
-#'   positive resp given control, e.g., E[FTA(bail=0) | bail = 0] $resp_trt:
-#'   Predicted probability of positive resp given treatment, e.g., E[FTA(bail=1)
-#'   | bail = 1] $p_trt: predicted probability of setting bail for observed x
+#'   positive resp given control, $resp_trt: Predicted probability of positive
+#'   resp given treatment, $p_trt: predicted probability of treatment
 #' @param q p(u = 1 | x)
 #' @param dp change in log-odds of treat = 1 if u = 1
-#' @param d0 change in log-odds of resp = 1 if treat = 0 and u = 1
-#' @param d1 change in log-odds of resp = 1 if treat = 1 and u = 1
+#' @param d0 change in log-odds of response = 1 if treat = 0 and u = 1
+#' @param d1 change in log-odds of response = 1 if treat = 1 and u = 1
 #' @param debug logical, whether or not to return columns of intermediate
-#'   variables for debuging purposes
+#'   variables for debugging purposes
 #'
 #' @return A data frame with the columns resp_ctl and resp_trt updated according
 #'   to the sensitivity parameters. If debug = TRUE, returned data frame will
