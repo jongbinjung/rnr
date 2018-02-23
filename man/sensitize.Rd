@@ -8,13 +8,11 @@ treatment/control}
 sensitize(df, q, dp, d0, d1, debug = FALSE)
 }
 \arguments{
-\item{df}{data frame to analyze; must include columns $id: column used to
-identify each row (for future debugging) $resp: Observed (binary) response,
-e.g., FTA $treat: Observed (binary) treatment, e.g., bail_set $resp_ctl:
-Predicted probability of positive resp given control, e.g., E[FTA(bail=0) |
-bail = 0] $resp_trt: Predicted probability of positive resp given
-treatment, e.g., E[FTA(bail=1) | bail = 1] $p_trt: predicted probability of
-setting bail for observed x}
+\item{df}{data frame to analyze; must include columns $treat: Observed
+(binary) treatment, e.g., bail_set $resp_ctl: Predicted probability of
+positive resp given control, e.g., E[FTA(bail=0) | bail = 0] $resp_trt:
+Predicted probability of positive resp given treatment, e.g., E[FTA(bail=1)
+| bail = 1] $p_trt: predicted probability of setting bail for observed x}
 
 \item{q}{p(u = 1 | x)}
 
@@ -29,23 +27,16 @@ variables for debuging purposes}
 }
 \value{
 A data frame with the columns resp_ctl and resp_trt updated according
-  to the sensitivity parameters.
-  If debug = TRUE, returned data frame will also contain columns of
-  intermediate variables computed for sensitivity, starting with "v_rnr_"
-  (e.g., v_rnr_gamma), with the original response estimates renamed as
-     v_rnr_resp_trt_trt = resp_trt
-     v_rnr_resp_ctl_ctl = resp_ctl
+  to the sensitivity parameters. If debug = TRUE, returned data frame will
+  also contain columns of intermediate variables computed for sensitivity,
+  appended with "__" (e.g., gamma__), with the original response estimates
+  renamed as resp_trt_trt__ = resp_trt resp_ctl_ctl__ = resp_ctl
 }
 \description{
 Compute the sensitivity-adjusted estimates of predicted outcome given
 treatment/control
 }
-\note{
-If debug = FALSE (default), all columns that start with "v_rnr_" will
-  be removed from the final result
-}
 \examples{
-d <- data.frame(id = 1, resp = 1, treat = 0,
-                resp_ctl = .2, resp_trt = .3, p_trt = .5)
-sensitize(d)
+d <- data.frame(treat = 0, resp_ctl = .2, resp_trt = .3, p_trt = .5)
+sensitize(d, q = .5, dp = log(2), d0 = log(2), d1 = log(2))
 }
