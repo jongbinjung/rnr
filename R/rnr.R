@@ -5,5 +5,4 @@
 #'
 #' @docType package
 #' @name rnr
-#' @import dplyr
 NULL
