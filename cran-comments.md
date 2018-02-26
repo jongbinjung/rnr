@@ -1,12 +1,7 @@
 ## Resubmission
 This is a resubmission. In this version I have:
 
-* Updated (possibly) invalid URL: http://cran.r-project.org/package=rnr
-  in README.md to canonical form: https://CRAN.R-project.org/package=rnr
-  
-* Added paper reference regarding the method in Description
-
-* Added unit test to improve coverage
+* Modified arXiv reference in Description to the format <arXiv:YYMM.NNNNN>.
   
 ## Test environments
 * local fedora 27, R 3.4.2

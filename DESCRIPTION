@@ -5,7 +5,7 @@ Version: 0.1.0
 Author: Jongbin Jung
 Maintainer: Jongbin Jung <me@jongbin.com>
 Description: Apply sensitivity analysis for offline policy evaluation, as 
-    implemented in Jung et al. (2017) <https://arxiv.org/abs/1702.04690> based 
+    implemented in Jung et al. (2017) <arXiv:1702.04690> based 
     on Rosenbaum and Rubin (1983) <http://www.jstor.org/stable/2345524>.
 License: GPL-3 | file LICENSE
 Encoding: UTF-8
