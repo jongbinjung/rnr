@@ -45,3 +45,38 @@ test_that("sensitize() returns non-negative estimates for range of q", {
     expect_gte(min(generated$resp_trt), 0)
   }
 })
+
+test_that("sensitize() recovers ground truth, given true parameters", {
+  gamma <- 1
+  beta_trt <- 1.2
+  beta_ctl <- 1.1
+
+  q <- 0.32
+  alpha <- 1.5
+  delta <- 2
+
+  ptrt_u0 <- inv_logit(gamma)
+  ptrt_u1 <- inv_logit(gamma + alpha)
+
+  pu0_ctl <- (1-ptrt_u0)*(1-q) / ((1-ptrt_u0)*(1-q) + (1-ptrt_u1)*q)
+  pu0_trt <- ptrt_u0*(1-q) / (ptrt_u0*(1-q) + ptrt_u1*q)
+
+  d <- data.frame(
+    treat = c(0, 1),
+    p_trt = ptrt_u0*(1-q) + ptrt_u1*q,
+    resp_ctl = pu0_ctl*inv_logit(beta_ctl) +
+      (1-pu0_ctl)*inv_logit(beta_ctl + delta),
+    resp_trt = pu0_trt*inv_logit(beta_trt) +
+      (1-pu0_trt)*inv_logit(beta_trt + delta)
+  )
+
+  g <- sensitize(d, debug = TRUE, q = q, dp = alpha, d0 = delta, d1 = delta)
+
+  expect_equal(g$gamma__, rep(gamma, 2))
+  expect_equal(g$beta_ctl__, rep(beta_ctl, 2))
+  expect_equal(g$beta_trt__, rep(beta_trt, 2))
+  expect_equal(g$ptrt_u0__, rep(ptrt_u0, 2))
+  expect_equal(g$ptrt_u1__, rep(ptrt_u1, 2))
+  expect_equal(g$pu0_ctl__, rep(pu0_ctl, 2))
+  expect_equal(g$pu0_trt__, rep(pu0_trt, 2))
+})

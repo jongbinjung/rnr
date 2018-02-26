@@ -53,8 +53,7 @@ sensitize <- function(df, q, dp, d0, d1, debug = FALSE) {
   # u = 1 is more likely to have positive responce (resp=1)
   pu0_ctl__ <- (1 - ptrt_u0__) * (1 - q) /
     ((1 - ptrt_u0__) * (1 - q) + (1 - ptrt_u1__) * q)
-  pu0_trt__ <- ptrt_u0__ * (1 - q) / (ptrt_u0__ * (1 - q) + ptrt_u1__ *
-                                        q)
+  pu0_trt__ <- ptrt_u0__ * (1 - q) / (ptrt_u0__ * (1 - q) + ptrt_u1__ * q)
   pu0__ <- ifelse(df$treat, pu0_trt__, pu0_ctl__)
 
   # lhs r_t = 1 means resp = 1
