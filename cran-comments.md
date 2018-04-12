@@ -1,19 +1,12 @@
-## Resubmission
-This is a resubmission. In this version I have:
-
-* Modified arXiv reference in Description to the format <arXiv:YYMM.NNNNN>.
-  
 ## Test environments
-* local fedora 27, R 3.4.2
-* ubuntu 14.04 (on travis-ci), R 3.4.2
+* local fedora 27, R 3.4.4
+* ubuntu 14.04 (on travis-ci), R 3.4.4
 * win-builder (devel and release)
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
-
-* This is a new release.
+0 errors | 0 warnings | 0 note
 
 ## Reverse dependencies
 
-This is a new release, so there are no reverse dependencies.
+No reverse dependencies found as of this time.

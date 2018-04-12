@@ -1,6 +1,6 @@
-# rnr 0.1.0.9000
+# rnr 0.2.0
 
-* Current development version
+* `sensitize()` is declared an S3method, with a single implementation for `data.frame`s (for now.)
 
 # rnr 0.1.0
 
