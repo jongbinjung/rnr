@@ -5,10 +5,10 @@
 \title{Compute the sensitivity-adjusted estimates of predicted outcome given
 treatment/control}
 \usage{
-\method{sensitize}{data.frame}(d, q, dp, d0, d1, debug = FALSE)
+\method{sensitize}{data.frame}(obj, q, dp, d0, d1, debug = FALSE, ...)
 }
 \arguments{
-\item{d}{data frame to analyze; must include columns $treat: Observed
+\item{obj}{data frame to analyze; must include columns $treat: Observed
 (binary) treatment, e.g., bail_set $resp_ctl: Predicted probability of
 positive resp given control, $resp_trt: Predicted probability of positive
 resp given treatment, $p_trt: predicted probability of treatment}
@@ -23,6 +23,8 @@ resp given treatment, $p_trt: predicted probability of treatment}
 
 \item{debug}{logical, whether or not to return columns of intermediate
 variables for debugging purposes}
+
+\item{...}{additional arguments are ignored}
 }
 \value{
 A data frame with the columns resp_ctl and resp_trt updated according
@@ -36,6 +38,6 @@ Compute the sensitivity-adjusted estimates of predicted outcome given
 treatment/control
 }
 \examples{
-d <- data.frame(treat = 0, resp_ctl = .2, resp_trt = .3, p_trt = .5)
-sensitize(d, q = .5, dp = log(2), d0 = log(2), d1 = log(2))
+obj <- data.frame(treat = 0, resp_ctl = .2, resp_trt = .3, p_trt = .5)
+sensitize(obj, q = .5, dp = log(2), d0 = log(2), d1 = log(2))
 }

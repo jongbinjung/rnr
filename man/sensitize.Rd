@@ -4,10 +4,10 @@
 \alias{sensitize}
 \title{Generic sensitizing for Rosenbaum & Rubin sensitivity analysis}
 \usage{
-sensitize(d, q, dp, d0, d1, debug)
+sensitize(obj, q, dp, d0, d1, ...)
 }
 \arguments{
-\item{d}{data to sensitize}
+\item{obj}{data to sensitize}
 
 \item{q}{p(u = 1 | x)}
 
@@ -17,11 +17,11 @@ sensitize(d, q, dp, d0, d1, debug)
 
 \item{d1}{change in log-odds of response = 1 if treat = 1 and u = 1}
 
-\item{debug}{logical, whether or not to return columns of intermediate
-variables for debugging purposes}
+\item{...}{additional arguments required to sensitize object}
 }
 \value{
-a sensitized data structure
+a sensitized object, identical to, or inheriting the class of
+  original \code{obj}
 }
 \description{
 Generic sensitizing for Rosenbaum & Rubin sensitivity analysis
