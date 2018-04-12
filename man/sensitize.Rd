@@ -2,16 +2,12 @@
 % Please edit documentation in R/sensitize.R
 \name{sensitize}
 \alias{sensitize}
-\title{Compute the sensitivity-adjusted estimates of predicted outcome given
-treatment/control}
+\title{Generic sensitizing for Rosenbaum & Rubin sensitivity analysis}
 \usage{
-sensitize(df, q, dp, d0, d1, debug = FALSE)
+sensitize(d, q, dp, d0, d1, debug)
 }
 \arguments{
-\item{df}{data frame to analyze; must include columns $treat: Observed
-(binary) treatment, e.g., bail_set $resp_ctl: Predicted probability of
-positive resp given control, $resp_trt: Predicted probability of positive
-resp given treatment, $p_trt: predicted probability of treatment}
+\item{d}{data to sensitize}
 
 \item{q}{p(u = 1 | x)}
 
@@ -25,17 +21,8 @@ resp given treatment, $p_trt: predicted probability of treatment}
 variables for debugging purposes}
 }
 \value{
-A data frame with the columns resp_ctl and resp_trt updated according
-  to the sensitivity parameters. If debug = TRUE, returned data frame will
-  also contain columns of intermediate variables computed for sensitivity,
-  appended with "__" (e.g., gamma__), with the original response estimates
-  renamed as resp_trt_trt__ = resp_trt resp_ctl_ctl__ = resp_ctl
+a sensitized data structure
 }
 \description{
-Compute the sensitivity-adjusted estimates of predicted outcome given
-treatment/control
-}
-\examples{
-d <- data.frame(treat = 0, resp_ctl = .2, resp_trt = .3, p_trt = .5)
-sensitize(d, q = .5, dp = log(2), d0 = log(2), d1 = log(2))
+Generic sensitizing for Rosenbaum & Rubin sensitivity analysis
 }
