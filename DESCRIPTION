@@ -1,7 +1,7 @@
 Package: rnr
 Type: Package
 Title: Rosenbaum and Rubin Sensitivity
-Version: 0.2.1
+Version: 0.2.1.9000
 Author: Jongbin Jung
 Maintainer: Jongbin Jung <me@jongbin.com>
 Description: Apply sensitivity analysis for offline policy evaluation, as

@@ -1,3 +1,7 @@
+# rnr 0.2.1.9000
+
+* Current devel version
+
 # rnr 0.2.1
 
 * `sensitize()` signature is made more flexible
